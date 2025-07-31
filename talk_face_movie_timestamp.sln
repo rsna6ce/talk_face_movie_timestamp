@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34902.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "talk_face_movie_timestamp", "talk_face_movie_timestamp\talk_face_movie_timestamp.csproj", "{7443D379-3BCB-414E-843A-6048F1927C6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7443D379-3BCB-414E-843A-6048F1927C6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7443D379-3BCB-414E-843A-6048F1927C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7443D379-3BCB-414E-843A-6048F1927C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7443D379-3BCB-414E-843A-6048F1927C6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1543E7E-E40D-4DA2-B86B-F363800C7D97}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,68 @@
+# Visual Studio 2019 および C# Windows Forms 用の .gitignore
+
+# ビルド生成物
+bin/
+obj/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio キャッシュ / 設定
+.vs/
+.vscode/
+*.csproj.user
+
+# ビルド結果
+*.exe
+*.dll
+*.pdb
+*.cache
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.ipdb
+*.tlog
+*.log
+*.idb
+*.sdf
+*.opensdf
+*.aps
+
+# NuGet パッケージ
+packages/
+*.nupkg
+# NuGet のキャッシュを除外（必要に応じて）
+.nuget/
+
+# Roslyn コンパイラ関連
+*.ide/
+
+# Windows Forms 固有の生成ファイル
+*.resx
+*.settings
+*.Designer.cs  # 必要に応じてコメントアウト（後述）
+
+# テスト関連（必要に応じて）
+TestResults/
+*.trx
+*.xml
+
+# その他の不要ファイル
+*.bak
+*.cache
+*.swp
+*.tmp
+*~
+Thumbs.db
+.DS_Store
+
+# NAudio の依存関係（NuGetで復元されるので除外）
+lib/
+NAudio/
+
+# プロジェクト固有の除外（必要に応じて追加）
+# 例: 一時的な WAV ファイルや出力 CSV を除外
+*.wav
+*.csv

@@ -292,6 +292,7 @@ namespace TalkFaceMovieTimestamp
                 timer.Stop();
                 isVerifyMode = false;
                 currentIntervalIndex = -1;
+                lstTimestamps.ClearSelected(); // 再生終了時に選択解除
             }
             else
             {
@@ -313,6 +314,7 @@ namespace TalkFaceMovieTimestamp
                 timer.Stop();
                 isVerifyMode = false;
                 currentIntervalIndex = -1;
+                lstTimestamps.ClearSelected(); // 全区間終了時に選択解除
                 return;
             }
 
@@ -335,6 +337,7 @@ namespace TalkFaceMovieTimestamp
             {
                 timer.Stop();
                 lblTimer.Text = "00:00.000";
+                lstTimestamps.ClearSelected(); // 再生終了時に選択解除
             }
         }
 
@@ -358,6 +361,9 @@ namespace TalkFaceMovieTimestamp
                     currentIntervalIndex++;
                     PlayNextInterval();
                 }
+                // 現在再生中の区間をアクティブに
+                lstTimestamps.SelectedIndex = currentIntervalIndex;
+                lstTimestamps.TopIndex = Math.Max(0, currentIntervalIndex - lstTimestamps.Height / lstTimestamps.ItemHeight + 1); // スクロール調整
             }
         }
 

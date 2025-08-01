@@ -15,13 +15,13 @@ namespace TalkFaceMovieTimestamp
         private List<(double from, double to)> intervals; // 2人目の発話区間
         private double? markStart; // 長押し開始時間
         private string wavePath; // 選択中のWAVファイルパス
-        private ListBox lstTimestamps; // タイムスタンプ表示用リストボックス
-        private Label lblTimer; // タイムカウンター
-        private Label lblWaveFile; // WAVファイル名表示
+        //private ListBox lstTimestamps; // タイムスタンプ表示用リストボックス
+        //private Label lblTimer; // タイムカウンター
+        //private Label lblWaveFile; // WAVファイル名表示
         private Timer timer; // 再生位置更新用タイマー
         private bool isVerifyMode; // 検証再生モードフラグ
         private int currentIntervalIndex; // 現在の検証再生区間インデックス
-        private Button btnFromMinus, btnFromPlus, btnToMinus, btnToPlus; // 編集ボタン
+        //private Button btnFromMinus, btnFromPlus, btnToMinus, btnToPlus; // 編集ボタン
 
         public Form1()
         {
@@ -41,59 +41,59 @@ namespace TalkFaceMovieTimestamp
         private void SetupUI()
         {
             // ボタン配置
-            var btnLoad = new Button { Text = "WAV選択", Location = new Point(10, 10), Width = 100 };
-            var btnPlay = new Button { Text = "再生/停止", Location = new Point(10, 50), Width = 100 };
-            var btnVerify = new Button { Text = "検証再生", Location = new Point(120, 50), Width = 100 };
-            var btnMark = new Button { Text = "2人目マーク (長押し)", Location = new Point(10, 90), Width = 210, Height = 50 };
-            var btnLoadCsv = new Button { Text = "CSV読込", Location = new Point(10, 140), Width = 100 };
-            var btnSave = new Button { Text = "CSV保存", Location = new Point(120, 140), Width = 100 };
+            //var btnLoad = new Button { Text = "WAV選択", Location = new Point(10, 10), Width = 100 };
+            //var btnPlay = new Button { Text = "再生/停止", Location = new Point(10, 50), Width = 100 };
+            //var btnVerify = new Button { Text = "検証再生", Location = new Point(120, 50), Width = 100 };
+            //var btnMark = new Button { Text = "2人目マーク (長押し)", Location = new Point(10, 90), Width = 210, Height = 50 };
+            //var btnLoadCsv = new Button { Text = "CSV読込", Location = new Point(10, 140), Width = 100 };
+            //var btnSave = new Button { Text = "CSV保存", Location = new Point(120, 140), Width = 100 };
 
             // WAVファイル名ラベル
-            lblWaveFile = new Label
-            {
-                Location = new Point(120, 10),
-                Size = new Size(210, 20),
-                Font = new Font("Consolas", 10),
-                Text = "未選択"
-            };
+            //lblWaveFile = new Label
+            //{
+            //    Location = new Point(120, 10),
+            //    Size = new Size(210, 20),
+            //    Font = new Font("Consolas", 10),
+            //    Text = "未選択"
+            //};
 
             // リストボックス配置
-            lstTimestamps = new ListBox
-            {
-                Location = new Point(10, 200),
-                Size = new Size(210, 150),
-                Font = new Font("Consolas", 10),
-                HorizontalScrollbar = true
-            };
+            //lstTimestamps = new ListBox
+            //{
+            //    Location = new Point(10, 200),
+            //    Size = new Size(210, 150),
+            //    Font = new Font("Consolas", 10),
+            //    HorizontalScrollbar = true
+            //};
 
             // タイムカウンター
-            lblTimer = new Label
-            {
-                Location = new Point(10, 360),
-                Size = new Size(210, 20),
-                Font = new Font("Consolas", 10),
-                Text = "00:00.000"
-            };
+            //lblTimer = new Label
+            //{
+            //    Location = new Point(10, 360),
+            //    Size = new Size(210, 20),
+            //    Font = new Font("Consolas", 10),
+            //    Text = "00:00.000"
+            //};
 
             // 編集ボタン
-            btnFromMinus = new Button { Text = "from <", Location = new Point(10, 390), Width = 50, Enabled = false };
-            btnFromPlus = new Button { Text = "from >", Location = new Point(70, 390), Width = 50, Enabled = false };
-            btnToMinus = new Button { Text = "to <", Location = new Point(130, 390), Width = 50, Enabled = false };
-            btnToPlus = new Button { Text = "to >", Location = new Point(190, 390), Width = 50, Enabled = false };
+            //btnFromMinus = new Button { Text = "from <", Location = new Point(10, 390), Width = 50, Enabled = false };
+            //btnFromPlus = new Button { Text = "from >", Location = new Point(70, 390), Width = 50, Enabled = false };
+            //btnToMinus = new Button { Text = "to <", Location = new Point(130, 390), Width = 50, Enabled = false };
+            //btnToPlus = new Button { Text = "to >", Location = new Point(190, 390), Width = 50, Enabled = false };
 
             // イベントハンドラ
-            btnLoad.Click += BtnLoad_Click;
-            btnLoadCsv.Click += BtnLoadCsv_Click;
+            //btnLoad.Click += BtnLoad_Click;
+            //btnLoadCsv.Click += BtnLoadCsv_Click;
             btnSave.Click += BtnSave_Click;
-            btnPlay.Click += BtnPlay_Click;
-            btnVerify.Click += BtnVerify_Click;
-            btnMark.MouseDown += BtnMark_MouseDown;
-            btnMark.MouseUp += BtnMark_MouseUp;
+            //btnPlay.Click += BtnPlay_Click;
+            //btnVerify.Click += BtnVerify_Click;
+            //btnMark.MouseDown += BtnMark_MouseDown;
+            //btnMark.MouseUp += BtnMark_MouseUp;
             lstTimestamps.SelectedIndexChanged += LstTimestamps_SelectedIndexChanged;
-            btnFromMinus.Click += (s, e) => AdjustInterval(lstTimestamps.SelectedIndex, -0.1, true);
-            btnFromPlus.Click += (s, e) => AdjustInterval(lstTimestamps.SelectedIndex, 0.1, true);
-            btnToMinus.Click += (s, e) => AdjustInterval(lstTimestamps.SelectedIndex, -0.1, false);
-            btnToPlus.Click += (s, e) => AdjustInterval(lstTimestamps.SelectedIndex, 0.1, false);
+            btnFromMinus.Click += (s, e) => AdjustInterval(lstTimestamps.SelectedIndex, -0.05, true);
+            btnFromPlus.Click += (s, e) => AdjustInterval(lstTimestamps.SelectedIndex, 0.05, true);
+            btnToMinus.Click += (s, e) => AdjustInterval(lstTimestamps.SelectedIndex, -0.05, false);
+            btnToPlus.Click += (s, e) => AdjustInterval(lstTimestamps.SelectedIndex, 0.05, false);
 
             Controls.AddRange(new Control[] { btnLoad, btnLoadCsv, btnSave, btnPlay, btnVerify, btnMark, lstTimestamps, lblTimer, lblWaveFile, btnFromMinus, btnFromPlus, btnToMinus, btnToPlus });
         }
@@ -180,7 +180,7 @@ namespace TalkFaceMovieTimestamp
                         btnFromPlus.Enabled = false;
                         btnToMinus.Enabled = false;
                         btnToPlus.Enabled = false;
-                        MessageBox.Show("WAVファイルが読み込まれました。", "情報");
+                        //MessageBox.Show("WAVファイルが読み込まれました。", "情報");
                     }
                     catch (Exception ex)
                     {
@@ -233,7 +233,8 @@ namespace TalkFaceMovieTimestamp
                         }
                         else
                         {
-                            MessageBox.Show("CSVを読み込みました。", "情報");
+                            //MessageBox.Show("CSVを読み込みました。", "情報");
+                            lblCsvFile.Text = Path.GetFileName(ofd.FileName);
                         }
                     }
                     catch (Exception ex)
@@ -469,5 +470,6 @@ namespace TalkFaceMovieTimestamp
             audioFileReader = null;
             timer?.Stop();
         }
+
     }
 }
